@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+    <meta property="og:description" content="文件的读写有三种形式：读、写和追加。 一、读模式 r 和读写模式 r&#x2B; 1、读模式 r 读模式r特点：（1）只能读，不能写；（2）文件不存在时会报错。 （1）例：读取当前目录下的books.txt文件" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Python-文件读写及修改 - wind1004 - 博客园</title>
+    <link id="favicon" rel="shortcut icon" href="//common.cnblogs.com/favicon.ico?v=20200522" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="/css/blog-common.min.css?v=OkWhT11pACV4T_PiDJL8x9WKPwjvEyWNCWQ475DeMM0" />
+    <link id="MainCss" rel="stylesheet" href="/skins/simplememory/bundle-simplememory.min.css?v=OL4qeo1LNGlN1rKIhv5UctANvt0M6Nx6kLzr_ffx3Xk" />
+    
+    <link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/SimpleMemory/bundle-SimpleMemory-mobile.min.css" />
+    
+    <link type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/zhxwind/rss" />
+    <link type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/zhxwind/rsd.xml" />
+    <link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/zhxwind/wlwmanifest.xml" />
+    <script src="https://common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script src="/js/blog-common.min.js?v=vV4imX1ebLq2xPxSzhr9B0eW28ml5Xc7CSXMptQoB78"></script>
+    <script>
+        var currentBlogId = 417995;
+        var currentBlogApp = 'zhxwind';
+        var cb_enable_mathjax = false;
+        var isLogined = false;
+        var skinName = 'SimpleMemory';
+    </script>
+    
+    
+    
+</head>
+<body>
+    <a name="top"></a>
+    
+    
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+        <a id="lnkBlogLogo" href="https://www.cnblogs.com/zhxwind/"><img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页" /></a>		
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/zhxwind/">wind1004</a>
+</h1>
+<h2>
+
+</h2>
+
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
+博客园</a>
+</li>
+<li>
+<a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/zhxwind/">
+首页</a>
+</li>
+<li>
+
+<a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
+新随笔</a>
+</li>
+<li>
+<a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/wind1004">
+联系</a></li>
+<li>
+<a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/zhxwind/rss/">
+订阅</a>
+<!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
+<li>
+<a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
+管理</a>
+</li>
+</ul>
+
+
+		<div class="blogStats">
+			
+			<span id="stats_post_count">随笔 - 
+30&nbsp; </span>
+<span id="stats_article_count">文章 - 
+0&nbsp; </span>
+<span id="stats-comment_count">评论 - 
+0</span>
+
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		<div id="post_detail">
+    <!--done-->
+    <div id="topics">
+        <div class="post">
+            <h1 class = "postTitle">
+                
+<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/zhxwind/p/8761618.html">Python-文件读写及修改</a>
+
+            </h1>
+            <div class="clear"></div>
+            <div class="postBody">
+                
+<div id="cnblogs_post_body" class="blogpost-body ">
+    <p>文件的读写有三种形式：读、写和追加。</p>
+<p><strong>一、读模式 r 和读写模式 r+</strong></p>
+<p><strong>1、读模式 r</strong></p>
+<p>读模式r特点：（1）只能读，不能写；（2）文件不存在时会报错。</p>
+<p>（1）例：读取当前目录下的books.txt文件，该文件如下所示。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409170759472-1989176013.png" alt="" /></p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409171514509-2064253935.png" alt="" />&nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409170900500-874533462.png" alt="" /></p>
+<p>解析：</p>
+<p>a、用open打开文件，在python3中只有open。python2可以用open和file。关闭文件是close()。一般有开就有关</p>
+<p>b、如果在当前目录，可以直接写文件名，否则需添加路径。</p>
+<p>c、如果不写 'r'，即写成 &nbsp;f = open('books.txt')，也是默认读模式。</p>
+<p>d、read可以将文件所有的内容都读出来</p>
+<p>e、另外，有时需要添加解码格式&nbsp;encoding ,格式为：</p>
+<pre>f = open('books','r',encoding='utf-8')</pre>
+<p>（2）</p>
+<p>read：读取文件全部内容</p>
+<p>readline：读取一行</p>
+<p>readlines：读取每一行，并且放到一个list里</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409173151251-1635606699.png" alt="" />&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409173159587-1523547171.png" alt="" /></p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409173221602-1305947245.png" alt="" />&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409173230786-571003496.png" alt="" /></p>
+<p><strong>2、读写模式 r+</strong></p>
+<p>&nbsp;读写模式r+特点：（1）文件不存在时会报错；（2）可以读，也可以写，是覆盖写，会把文件最前面的内容覆盖</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409174034353-1750066350.png" alt="" />&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409174050193-1515316338.png" alt="" /></p>
+<p>&lsquo;水浒传&rsquo;把&lsquo;平凡的&rsquo;三个字覆盖，原来的文件变为：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409174120272-1016007937.png" alt="" /></p>
+<p><strong>二、写模式 w 和写读模式 w+</strong></p>
+<p><strong>1、写模式</strong></p>
+<p>写模式w特点：（1）只能写，不能读；（2）写的时候会把原来文件的内容清空；（3）当文件不存在时，会创建新文件。</p>
+<p>如下，写入&lsquo;水浒传&rsquo;时，将原来的内容都清空。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409175022012-1716052059.png" alt="" />&nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409175004707-617509204.png" alt="" /></p>
+<p>f.flush()：有时我们用f.write()后，会发现没有写入文件，这是因为内容存在了缓冲区，需要等缓冲区满了之后，再把所有数据写入。此时可以用f.flush()强制把缓冲区里面的数据写到磁盘上。</p>
+<p><strong>&nbsp;2、写读模式 w+</strong></p>
+<p>写读模式w+特点：（1）可以写，也可以读；（2）写的时候会把原来文件的内容清空；（3）当文件不存在时，会创建新文件。</p>
+<p><strong>三、追加模式a和追加读模式a+</strong></p>
+<p><strong>1、追加模式a</strong></p>
+<p>追加模式a特点：（1）不能读；（2）可以写，是追加写，即在原内容末尾添加新内容；（3）当文件不存在时，创建新文件。</p>
+<p>&nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409180309559-473586904.png" alt="" />&nbsp;</p>
+<p>将&lsquo;水浒传&rsquo;添加到原内容的末尾</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409180406465-1378465366.png" alt="" /></p>
+<p><strong>2、追加读a+模式</strong></p>
+<p>追加读a+模式特点：（1）可读可写；（2）写的时候是追加写，即在原内容末尾添加新内容；（3）当文件不存在时，创建新文件。</p>
+<p>以上几种模式，可以用下表来总结：</p>
+<table style="height: 157px; border-color: #000000; border-width: 0px; width: 529px; border-style: solid;" border="0">
+<tbody>
+<tr>
+<td style="text-align: center;">读写模式</td>
+<td style="text-align: center;">是否可读</td>
+<td style="text-align: center;">是否可写</td>
+<td style="text-align: center;">文件不存在时</td>
+</tr>
+<tr>
+<td style="text-align: center;">r</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">报错</td>
+</tr>
+<tr>
+<td style="text-align: center;">r+</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是，覆盖写</td>
+<td style="text-align: center;">报错</td>
+</tr>
+<tr>
+<td style="text-align: center;">w</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">是，清空原内容</td>
+<td style="text-align: center;">创建新文件</td>
+</tr>
+<tr>
+<td style="text-align: center;">w+</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是，清空原内容</td>
+<td style="text-align: center;">创建新文件</td>
+</tr>
+<tr>
+<td style="text-align: center;">a</td>
+<td style="text-align: center;">否</td>
+<td style="text-align: center;">是，追加写</td>
+<td style="text-align: center;">创建新文件</td>
+</tr>
+<tr>
+<td style="text-align: center;">a+</td>
+<td style="text-align: center;">是</td>
+<td style="text-align: center;">是，追加写</td>
+<td style="text-align: center;">创建新文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>四、文件指针</strong></p>
+<p>文件指针用来记录文件走到哪里。</p>
+<p>文件指针是很重要的，我们看下面的例子中，read将books.txt的内容全部读了出来，readline则没有读出任何内容。原因是read读完之后，文件指针到了文件的末尾，此时readline接着从这个位置开始读，肯定是没内容的。因此有时需要调整文件指针的位置。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409182050120-1870601774.png" alt="" />&nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409182059039-14070086.png" alt="" /></p>
+<p>seek可以移动文件指针，移动后只是针对读，用追加模式写的时候，还是在末尾写。</p>
+<p>另外，seek(num)，这个num指的是字符，不是行。</p>
+<p>在上面的代码中，加一句f.seek(0)，即可将指针移到文件开头。这次，readline就可以从头开始读了。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409182731362-844651201.png" alt="" />&nbsp;&nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180409182756882-366349398.png" alt="" /></p>
+<p><strong>五、自动关闭文件</strong></p>
+<p>&nbsp;with可以自动关闭文件，用法如下：</p>
+<div class="cnblogs_code">
+<pre>with open(<span style="color: #800000;">'</span><span style="color: #800000;">books.txt</span><span style="color: #800000;">'</span>,<span style="color: #800000;">'</span><span style="color: #800000;">a+</span><span style="color: #800000;">'</span><span style="color: #000000;">) as f:
+    f.write(</span><span style="color: #800000;">'</span><span style="color: #800000;">\n三体</span><span style="color: #800000;">'</span>)</pre>
+</div>
+<p><strong>六、文件修改</strong></p>
+<p><strong>1、简单粗暴直接修改</strong></p>
+<p>最简单粗暴的修改文件，步骤是：</p>
+<p>（1）打开文件，获取文件内容；</p>
+<p>（2）对内容进行修改；</p>
+<p>（3）清空原来文件的内容；</p>
+<p>（4）把新的内容写进去。</p>
+<p>这种方法很简单，下面看一个小例子----文件username里存放了姓名和密码，如下图格式。我们要在所有姓名前加上&lsquo;A班_&rsquo;</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180416104652182-1553638352.png" alt="" /></p>
+<p>因为'A班_'中含有中文，需要叫上encoding='utf-8'，否则会出现乱码。</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180416104921870-1363935589.png" alt="" />&nbsp; &nbsp;<img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180416104938309-994571043.png" alt="" /></p>
+<p>2、备份文件的方法</p>
+<p>当文件很大时，刚刚的方法在一次性读取文件内容和写入新内容时，耗时长，占用磁盘空间也较大。</p>
+<p>备份文件的方法可以建立一个备份文件，修改一行写一行，具体步骤如下：</p>
+<p>（1）打开2个文件，原文件a和备份文件b。如a.txt &nbsp; &nbsp;b.txt.bak</p>
+<p>（2）删除a文件，将b文件名改为a文件名</p>
+<p>例：将文件words里的&ldquo;花&rdquo;改成&ldquo;flower&rdquo;</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180416111418205-1212469108.png" alt="" /></p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180416111434948-1889514335.png" alt="" /></p>
+<p><strong>七、小练习</strong></p>
+<p>&nbsp;1、产生手机号 前几位一样1861253 后四位随机，写到文件里。</p>
+<p>分析：（1）首先要随机产生一些四位数，位数不足的要补0，zfill可以给字符串补0；</p>
+<p>（2）需要写到文件里，可以用w或者a模式。文件有打开就要有关闭。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> random
+f </span>= open(<span style="color: #800000;">'</span><span style="color: #800000;">phones.txt</span><span style="color: #800000;">'</span>,<span style="color: #800000;">'</span><span style="color: #800000;">w</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+num </span>= int(input(<span style="color: #800000;">'</span><span style="color: #800000;">请输入你要产生的手机号个数：</span><span style="color: #800000;">'</span><span style="color: #000000;">))
+</span><span style="color: #0000ff;">for</span> i <span style="color: #0000ff;">in</span><span style="color: #000000;"> range(num):
+    start </span>= <span style="color: #800000;">'</span><span style="color: #800000;">1861253</span><span style="color: #800000;">'</span><span style="color: #000000;">
+    random_num </span>= str(random.randint(1,9999<span style="color: #000000;">))
+    new_num </span>= random_num .zfill(4) <span style="color: #008000;">#</span><span style="color: #008000;">不够4位就补0,仅对字符串可以使用</span>
+    phone_num = start +<span style="color: #000000;"> new_num
+    f.write(phone_num</span>+<span style="color: #800000;">'</span><span style="color: #800000;">\n</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+f.close()</span></pre>
+</div>
+<p>2、监控服务器日志，如果ip出现的次数大于50次，就把该ip加入黑名单。日志文件的格式如下图</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180410144150985-2119569471.png" alt="" /></p>
+<p>分析：（1）首先，我们应该从日志里提取出所有ip。根据日志文件的格式，我们可以看到每一行的开头是ip，那么可以一行一行的读取数据，然后用空格进行分割，则该行第一个元素就是ip。（2）然后需要统计每一个ip出现的次数，最直接想到的就是count。（3）找到出现次数大于50次的ip，打印出来。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">import</span><span style="color: #000000;"> time
+
+point </span>= 0<span style="color: #008000;">#</span><span style="color: #008000;">记录文件指针的位置</span>
+<span style="color: #0000ff;">while</span><span style="color: #000000;"> True:
+    f </span>= open(r<span style="color: #800000;">'</span><span style="color: #800000;">D:\access.log</span><span style="color: #800000;">'</span>,encoding=<span style="color: #800000;">'</span><span style="color: #800000;">utf-8</span><span style="color: #800000;">'</span><span style="color: #000000;">)
+    all_ips </span>=<span style="color: #000000;"> []
+    f.seek(point)</span><span style="color: #008000;">#</span><span style="color: #008000;">移动文件指针，本次接着上次的位置继续读</span>
+    <span style="color: #0000ff;">for</span> line <span style="color: #0000ff;">in</span><span style="color: #000000;"> f:
+        ip </span>= line.split()[0]<span style="color: #008000;">#</span><span style="color: #008000;">每行第一个元素为IP</span>
+        all_ips.append(ip)<span style="color: #008000;">#</span><span style="color: #008000;">存放所有的ip，不去重</span>
+    point = f.tell()<span style="color: #008000;">#</span><span style="color: #008000;"> 获取文件当前指针位置</span>
+    ips_set = set(all_ips)<span style="color: #008000;">#</span><span style="color: #008000;">去重</span>
+    <span style="color: #0000ff;">for</span> i <span style="color: #0000ff;">in</span><span style="color: #000000;"> ips_set:
+        </span><span style="color: #0000ff;">if</span> all_ips.count(i)&gt;50<span style="color: #000000;">:
+            </span><span style="color: #0000ff;">print</span>(<span style="color: #800000;">'</span><span style="color: #800000;">应该加入黑名单的ip是：%s\n</span><span style="color: #800000;">'</span>%<span style="color: #000000;">i)
+    time.sleep(</span>60)<span style="color: #008000;">#</span><span style="color: #008000;">暂停60s</span></pre>
+</div>
+<p>运行结果为：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1348269/201804/1348269-20180410144742294-1615403110.png" alt="" /></p>
+<p>&nbsp;</p>
+</div>
+<div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+    <div id="blog_post_info"></div>
+    <div class="clear"></div>
+    <div id="post_next_prev"></div>
+</div>
+            </div>
+            <div class="postDesc">posted @ 
+<span id="post-date">2018-04-10 14:49</span>&nbsp;
+<a href="https://www.cnblogs.com/zhxwind/">wind1004</a>&nbsp;
+阅读(<span id="post_view_count">...</span>)&nbsp;
+评论(<span id="post_comment_count">...</span>)&nbsp;
+<a href="https://i.cnblogs.com/EditPosts.aspx?postid=8761618" rel="nofollow">编辑</a>&nbsp;
+<a href="javascript:void(0)" onclick="AddToWz(8761618);return false;">收藏</a></div>
+        </div>
+	    
+	    
+    </div><!--end: topics 文章、评论容器-->
+</div>
+<script src="https://common.cnblogs.com/highlight/9.12.0/highlight.min.js"></script>
+<script>markdown_highlight();</script>
+<script>
+    var allowComments = true, cb_blogId = 417995, cb_blogApp = 'zhxwind', cb_blogUserGuid = 'f7c77744-19f3-4665-9145-08d5866282ce';
+    var cb_entryId = 8761618, cb_entryCreatedDate = '2018-04-10 14:49', cb_postType = 1; 
+    loadViewCount(cb_entryId);
+    loadSideColumnAd();
+</script><a name="!comments"></a>
+<div id="blog-comments-placeholder"></div>
+<script>
+    var commentManager = new blogCommentManager();
+    commentManager.renderComments(0);
+</script>
+
+<div id="comment_form" class="commentform">
+    <a name="commentform"></a>
+    <div id="divCommentShow"></div>
+    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
+    <div id="comment_form_container"></div>
+    <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+    <div id="ad_t2"></div>
+    <div id="opt_under_post"></div>
+    <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+    </script>
+    <script>
+        googletag.cmd.push(function () {
+            googletag.defineSlot("/1090369/C1", [300, 250], "div-gpt-ad-1546353474406-0").addService(googletag.pubads());
+            googletag.defineSlot("/1090369/C2", [468, 60], "div-gpt-ad-1539008685004-0").addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+        });
+    </script>
+    <div id="cnblogs_c1" class="c_ad_block">
+        <div id="div-gpt-ad-1546353474406-0" style="height:250px; width:300px;"></div>
+    </div>
+    <div id="under_post_news"></div>
+    <div id="cnblogs_c2" class="c_ad_block">
+        <div id="div-gpt-ad-1539008685004-0" style="height:60px; width:468px;"></div>
+    </div>
+    <div id="under_post_kb"></div>
+    <div id="HistoryToday" class="c_ad_block"></div>
+    <script type="text/javascript">
+        fixPostBody();
+        deliverBigBanner();
+setTimeout(function() { incrementViewCount(cb_entryId); }, 50);        deliverAdT2();
+        deliverAdC1();
+        deliverAdC2();
+        loadNewsAndKb();
+        loadBlogSignature();
+LoadPostCategoriesTags(cb_blogId, cb_entryId);        LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+        GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+        loadOptUnderPost();
+        GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);
+    </script>
+</div>
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<div id="sidebar_news" class="newsItem">
+            <script>loadBlogNews();</script>
+</div>
+
+<div id="sidebar_ad"></div>
+			<div id="blog-calendar" style="display:none"></div><script>loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div>
+                    <script>loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		<!--done-->
+Copyright &copy; 2020 wind1004
+<br /><span id="poweredby">Powered by .NET Core on Kubernetes</span>
+
+
+
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+    
+</body>
+</html>

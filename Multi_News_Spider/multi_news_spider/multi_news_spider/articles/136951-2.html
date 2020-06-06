@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="gb2312" />
+<meta http-equiv="x-dns-prefetch-control" content="on" />
+<link rel="dns-prefetch" href="//img.jbzj.com/" />
+<link rel="dns-prefetch" href="//icws.jb51.net/" />
+<link rel="dns-prefetch" href="//files.jb51.net/" />
+<meta name="applicable-device" content="pc">
+<meta name="renderer" content="webkit"/>
+<meta name="force-rendering" content="webkit"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+<title>Python中实现switch功能实例解析_python_脚本之家</title>
+<meta name="keywords" content="python实现switch,python字典实现switch,python,switch,case,python3,switch,python的switch" />
+<meta name="description" content="这篇文章主要介绍了Python中实现switch功能实例解析，具有一定借鉴价值,需要的朋友可以参考下" />
+<link rel="alternate" media="only screen and(max-width: 640px)" href="https://m.jb51.net/article/132691.htm" />
+<meta http-equiv="mobile-agent" content="format=html5; url=https://m.jb51.net/article/132691.htm" />
+<meta http-equiv="mobile-agent" content="format=xhtml; url=https://m.jb51.net/article/132691.htm" />
+<script type="text/javascript">
+var tougao="mengwei",lmname="python",suoyin="no";
+(function(){var reWriteUrl=function(url){if(url){var Splits=url.split("/"),siteName=window.location.pathname;if(typeof siteName!=="undefined"){return "https://m.jb51.net"+siteName}}};if(/Android|webOS|iPhone|iPad|Windows Phone|iPod|BlackBerry|SymbianOS|Nokia|Mobile/i.test(navigator.userAgent)){var url=window.location.href;var pathname=window.location.pathname;if(url.indexOf("?pc")<0){try{window.location.href=reWriteUrl(url)}catch(e){}}}})();
+</script>
+<meta name="referrer" content="always">
+<link type="text/css" href="/skin/2019/css/base.css" rel="stylesheet" />
+<link type="text/css" href="/skin/2019/css/common.css" rel="stylesheet" />
+<link type="text/css" href="//cdn.staticfile.org/viewerjs/1.5.0/viewer.min.css" rel="stylesheet" />
+<script type="text/javascript" src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/skin/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+</script>
+<script type=text/javascript src="/js/function.js"></script> 
+</head>
+<body>
+<!--topTools Start -->
+<div id="topbar">
+    <div id="wrap">
+		<div class="topbarleft">
+			<a href="/" target="_blank">脚本之家</a>
+			<a href="http://s.jb51.net" target="_blank" rel="nofollow">服务器常用软件</a>
+		</div>
+		<div class="fr">
+			<ul>
+				<li><i class="ico-mobile"></i><a target="_blank" href="https://m.jb51.net/" rel="nofollow">手机版</a></li>
+				<li><i class="ico-contribute"></i><a href="http://tougao.jb51.net" rel="nofollow" target="_blank">投稿中心</a></li>
+				<li id="wxHide"><i class="ico-wechat"></i><a href="javascript:void(0)" target="_blank">关注微信</a>
+					<div id="wxShow" class="wxHide_box"><img src="//img.jbzj.com/skin/2018/images/erwm.jpg" alt="扫一扫" width="84" hight="84" data-baiduimageplus-ignore></div>
+				</li>
+			</ul>
+			<!--快捷导航 开始 -->
+			<div class="text_d right" id="navHide">
+				<a rel="nofollow" href="javascript:void(0);">快捷导航 <i class="arrowright"></i></a>
+				<div id="navBox" class="nwebnav">
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="/softs/" target="_blank">软件下载</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/softs/android.html" target="_blank">android</a>
+								<a rel="nofollow" href="/softs/mac.html" target="_blank">MAC</a>
+								<a rel="nofollow" href="/qudong/" target="_blank">驱动下载</a>
+								<a rel="nofollow" href="/fonts/" target="_blank">字体下载</a>
+								<a rel="nofollow" href="/dll/" target="_blank">DLL</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="/codes/" target="_blank">源码下载</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/codes/php.html" target="_blank">PHP</a>
+								<a rel="nofollow" href="/codes/aspnet.html" target="_blank">ASP.NET</a>
+								<a rel="nofollow" href="/codes/asp.html" target="_blank">ASP</a>
+								<a rel="nofollow" href="/codes/jsp.html" target="_blank">JSP</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="/list/index_84.htm" target="_blank">软件编程</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/list/list_85_1.htm" target="_blank">C#</a>
+								<a rel="nofollow" href="/list/list_134_1.htm" target="_blank">JAVA</a>
+								<a rel="nofollow" href="/list/list_159_1.htm" target="_blank">C 语言</a>
+								<a rel="nofollow" href="/list/list_206_1.htm" target="_blank">Delphi</a>
+								<a rel="nofollow" href="/list/list_233_1.htm" target="_blank">Android</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="/list/index_1.htm" target="_blank">网络编程</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/list/list_15_1.htm" target="_blank">PHP</a>
+								<a rel="nofollow" href="/list/list_21_1.htm" target="_blank">ASP.NET</a>
+								<a rel="nofollow" href="/list/list_2_1.htm" target="_blank">ASP</a>
+								<a rel="nofollow" href="/list/list_3_1.htm" target="_blank">JavaScript</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="http://tools.jb51.net/" target="_blank">在线工具</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/tools/cssyasuo.shtml" target="_blank">CSS格式化</a>
+								<a rel="nofollow" href="http://tools.jb51.net/tools/js_geshihua.asp" target="_blank">JS格式化</a>
+								<a rel="nofollow" href="/tools/html-js.htm" target="_blank">Html转化为Js</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="/list/index_104.htm" target="_blank">数据库</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/list/list_112_1.htm" target="_blank">MYSQL</a>
+								<a rel="nofollow" href="/list/list_113_1.htm" target="_blank">MSSQL</a>
+								<a rel="nofollow" href="/list/list_154_1.htm" target="_blank">oracle</a>
+								<a rel="nofollow" href="/list/list_155_1.htm" target="_blank">DB2</a>
+								<a rel="nofollow" href="/list/list_252_1.htm" target="_blank">MARIADB</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="/cms/" target="_blank">CMS</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/cms/list411_1.html" target="_blank">PHPCMS</a>
+								<a rel="nofollow" href="/cms/list408_1.html" target="_blank">DEDECMS</a>
+								<a rel="nofollow" href="/cms/list578_1.html" target="_blank">帝国CMS</a>
+								<a rel="nofollow" href="/cms/list419_1.html" target="_blank">WordPress</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="ndeallist clear_fix">
+						<h4><a rel="nofollow" href="javascript:0;" target="_blank">常用工具</a></h4>
+						<dl>
+							<dd>
+								<a rel="nofollow" href="/zt/phphuanjing.html" target="_blank">PHP开发工具</a>
+								<a rel="nofollow" href="/zt/python.html" target="_blank">python</a>
+								<a rel="nofollow" href="/zt/photoshopxz.html" target="_blank">Photoshop</a>
+								<a rel="nofollow" href="/bibei/win/index.html" target="_blank">必备软件</a>
+							</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<!--快捷导航 结束 -->
+		</div>
+    </div>
+</div>
+<!--topTools end -->
+
+<div id="header">
+	<!-- Logo start -->
+	  <div id="logo"><a href="/"><img src="/images/logo.gif" title="脚本之家" alt="脚本之家" /></a></div>
+	  <div class="logom fl"><span id="logo_m" class="jbTestPos"></span></div>
+	  <div class="logor fr"><span id="logo_r" class="jbTestPos"></span></div>
+	<!--Logo end -->
+</div>	
+	<!--Logo end -->
+	
+	<!-- 导航开始 -->
+<div id="nav">
+	<ul>
+		<li><a href="/">网站首页</a></li>
+		<li><a href="/web/">网页制作</a></li>
+		<li><a href="/list/index_1.htm">网络编程</a></li>
+		<li><a href="/list/index_96.htm">脚本专栏</a></li>
+		<li><a href="/jiaoben/">脚本下载</a></li>
+		<li><a href="/list/index_104.htm">数据库</a></li>
+		<li><a href="/list/list_82_1.htm">服务器</a></li>
+		<li><a href="/books/">电子书籍</a></li>
+		<li><a href="/os/">操作系统</a></li>
+		<li><a href="/yunying/">网站运营</a></li>
+		<li><a href="/pingmian/">平面设计</a></li>
+		<li><p><i>其它</i><span>
+			<a href="/media/">媒体动画</a>
+			<a href="/diannaojichu/">电脑基础</a>
+			<a href="/hardware/">硬件教程</a>
+			<a href="/hack/">网络安全</a>	
+		</span></p>
+		</li>
+	</ul>
+</div>
+	<!--导航结束-->
+</div>
+
+<!-- 二级菜单开始 -->
+<div id="submenu">
+	<div class="subnav clearfix">
+<ul><li><a href='/list/list_114_1.htm' title="vbs">vbs</a></li>
+<li><a href='/list/list_106_1.htm' title="DOS/BAT">DOS/BAT</a></li>
+<li><a href='/list/list_110_1.htm' title="hta">hta</a></li>
+<li><a href='/list/list_111_1.htm' title="htc">htc</a></li>
+<li><a href='/list/list_97_1.htm' title="python">python</a></li>
+<li><a href='/list/list_125_1.htm' title="perl">perl</a></li>
+<li><a href='/list/list_138_1.htm' title="游戏相关">游戏相关</a></li>
+<li><a href='/list/list_161_1.htm' title="VBA">VBA</a></li>
+<li><a href='/list/list_163_1.htm' title="远程脚本">远程脚本</a></li>
+<li><a href='/list/list_178_1.htm' title="ColdFusion">ColdFusion</a></li>
+<li><a href='/list/list_201_1.htm' title="ruby专题">ruby专题</a></li>
+<li><a href='/list/list_213_1.htm' title="autoit">autoit</a></li>
+<li><a href='/list/list_214_1.htm' title="seraphzone">seraphzone</a></li>
+<li><a href='/list/list_234_1.htm' title="PowerShell">PowerShell</a></li>
+<li><a href='/list/list_235_1.htm' title="linux shell">linux shell</a></li>
+<li><a href='/list/list_245_1.htm' title="Lua">Lua</a></li>
+<li><a href='/list/list_246_1.htm' title="Golang">Golang</a></li>
+<li><a href='/list/list_249_1.htm' title="Erlang">Erlang</a></li>
+<li><a href='/list/list_130_1.htm' title="其它">其它</a></li>
+</ul>
+	</div>
+</div>
+<!-- 二级菜单结束 -->	
+
+<!--content Star -->
+<div id="wrapper">
+	<div id="container">
+		<div class="pt10 clearfix">
+			<div class="clearfix"><span id="tonglan1" class="jbTestPos"></span></div>
+		</div>
+	
+		<div class="clearfix">
+			<div class="breadcrumb">
+				<i class="ico-path"></i>您的位置：<a href='/'>首页</a> → <a href="/list/index_96.htm" title="脚本专栏">脚本专栏</a> → <a href="/list/list_97_1.htm" title="python">python</a> → Python中实现switch功能
+			</div>
+			<div class="search">
+			<form action="/do/search.php" target="_blank">
+				<input type="hidden" name="s" value="10520733385329581432">
+				<input type="hidden" name="ie" value="gbk">
+				<input type="text" name="q" class="searchinput" placeholder="请输入关键词">
+				<input type="submit" value=" " class="search-button">
+			</form>
+			</div>
+		</div>
+	
+	   <div id="main" class="clearfix">
+		  <div class="main-left">
+			  <div id="article">
+			  		<h1 class="title">Python中实现switch功能实例解析</h1>
+					<div class="info"> &nbsp;更新时间：2018年01月11日 14:45:01 &nbsp; 转载&nbsp;作者：最爱彩虹糖  &nbsp; </div>
+					<div class="lbd clearfix"><span id="tit_down" class="jbTestPos"></span></div>
+                    <div class="summary">这篇文章主要介绍了Python中实现switch功能实例解析，具有一定借鉴价值,需要的朋友可以参考下</div>
+					<div class="lbd clearfix"><span id="art_up" class="jbTestPos"></span></div>
+					<div id="content">
+						<p><span style="font-size: large"><strong>前言</strong></span></p>
+<p>今天在学习python的过程中，发现python没有switch这个语法。于是就想在python中如何才能实现这个功能呢？</p>
+<p><span style="font-size: large"><strong>正文</strong></span></p>
+<p>本文中我们对switch的使用模拟为正常的数据库的增删改查操作的对应，如'select <br />
+对应'select action'等。</p>
+<p><strong>1.简单的if-else</strong></p>
+<p>正如我们所知，python中有if语句，而且当时学习C的时候，学到if-else时引出的的替代品就是switch，两者可以完美的互相替代,需要注意的是在python中else if简化成了elif。如下所示：</p>
+<div class="jb51code">
+<pre class="brush:py;">
+#!/usr/bin/env python
+user_cmd = raw_input(&amp;quot;please input your choice:\n&amp;quot;)
+if usercmd == &amp;quot;select&amp;quot;
+ ops = &amp;quot;select action&amp;quot; 
+elif usercmd == &amp;quot;update&amp;quot;
+ ops = &amp;quot;update action&amp;quot; 
+elif usercmd == &amp;quot;delete&amp;quot;
+ ops = &amp;quot;delete action&amp;quot; 
+elif usercmd == &amp;quot;insert&amp;quot;
+ ops = &amp;quot;insert action&amp;quot; 
+else 
+ ops = &amp;quot;invalid choice!&amp;quot;
+print ops
+`&lt;/pre&gt;
+
+
+</pre>
+</div>
+<p><strong>&nbsp;2.使用字典<br />
+</strong></p>
+<p>这里我们使用到了字典的函数：dict.get(key, default=None)。key--字典中要查找的值，default--如果指定键的值不存在时，返回该默认值。如下所示：</p>
+<div class="jb51code">
+<pre class="brush:py;">
+#!/usr/bin/env python
+usercmd = raw_input(&amp;quot;please input your choice:\n&amp;quot;)
+dic = {'select':'select action','update':'update action','delete':'delete action','insert':'insert action'}
+defaultitem = 'invalid choice!'
+ops = dic.get(usercmd,defaultitem)
+print ops</pre>
+</div>
+<p><strong>3.使用lambda函数结合字典</strong></p>
+<p>lambda的一般形式是关键字lambda后面跟一个或多个参数，紧跟一个冒号，以后是一个表达式。lambda是一个表达式而不是一个语句。它能够出现在Python语法不允许def出现的地方，这里就不再多加描述。如下所示：</p>
+<div class="jb51code">
+<pre class="brush:py;">
+#!/usr/bin/env python
+usrcmd = raw_input(&amp;quot;please input your choice：\n&amp;quot;)
+dic = {'select': lambda : &amp;quot;select action&amp;quot;,
+  'update': lambda : &amp;quot;update action&amp;quot;,
+  'delete': lambda : &amp;quot;delete action&amp;quot;,
+  'insert': lambda : &amp;quot;insert action&amp;quot;}
+print cho[usr_cmd]()</pre>
+</div>
+<p><span style="font-size: large"><strong>总结</strong></span></p>
+<p>以上就是本文关于Python中实现switch功能实例解析的全部内容，希望对大家有所帮助。感兴趣的朋友可以继续参阅本站其他相关专题，如有不足之处，欢迎留言指出。感谢朋友们对本站的支持！</p>
+                        
+                        <div class="art_xg">
+                        <h4>您可能感兴趣的文章:</h4><ul><li><a href="/article/127840.htm" title="python中Switch/Case实现的示例代码" target="_blank">python中Switch/Case实现的示例代码</a></li><li><a href="/article/86812.htm" title="浅谈python为什么不需要三目运算符和switch" target="_blank">浅谈python为什么不需要三目运算符和switch</a></li><li><a href="/article/133031.htm" title="Python分支结构（switch）操作简介" target="_blank">Python分支结构（switch）操作简介</a></li></ul>
+                        </div>
+						<div class="lbd_bot clearfix">
+						<span id="art_bot" class="jbTestPos"></span>
+						</div>
+					</div><!--endmain-->
+					<div class="tags clearfix">
+						<i class="icon-tag"></i>
+						<ul class="meta-tags">
+						  <li class="tag item"><a href="http://common.jb51.net/tag/python/1.htm" target="_blank" title="搜索关于python的文章" rel="nofollow">python</a></li>
+<li class="tag item"><a href="http://common.jb51.net/tag/switch/1.htm" target="_blank" title="搜索关于switch的文章" rel="nofollow">switch</a></li>
+<li class="tag item"><a href="http://common.jb51.net/tag/%E5%AD%97%E5%85%B8/1.htm" target="_blank" title="搜索关于字典的文章" rel="nofollow">字典</a></li>
+
+						</ul>
+					</div>
+					<div class="lbd clearfix">
+						<span id="art_down" class="jbTestPos"></span>
+					</div>
+					<div id="shoucang"></div>
+					<div class="xgcomm clearfix">
+						<h2>相关文章</h2>
+						<ul><li class="lbd clearfix"><span id="art_xg" class="jbTestPos"></span></li><li><div class="item-inner"><a href="/article/137941.htm" title="Python3 实现随机生成一组不重复数并按行写入文件" class="img-wrap" target="_blank"> <img alt="Python3 实现随机生成一组不重复数并按行写入文件" src="//img.jbzj.com/images/xgimg/bcimg0.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/137941.htm" title="Python3 实现随机生成一组不重复数并按行写入文件">Python3 实现随机生成一组不重复数并按行写入文件</a></p><div class="item-info"><div class="js">下面小编就为大家分享一篇Python3 实现随机生成一组不重复数并按行写入文件的示例。具有很好的参考价值，希望对大家有所帮助。一起跟随小编过来看看吧</div><span class="lbtn" style="float:right"> 2018-04-04 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/186989.htm" title="django 解决自定义序列化返回处理数据为null的问题" class="img-wrap" target="_blank"> <img alt="django 解决自定义序列化返回处理数据为null的问题" src="//img.jbzj.com/images/xgimg/bcimg1.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/186989.htm" title="django 解决自定义序列化返回处理数据为null的问题">django 解决自定义序列化返回处理数据为null的问题</a></p><div class="item-info"><div class="js">这篇文章主要介绍了django 解决自定义序列化返回处理数据为null的问题，具有很好的参考价值，希望对大家有所帮助。一起跟随小编过来看看吧</div><span class="lbtn" style="float:right"> 2020-05-05 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/156991.htm" title="初探利用Python进行图文识别(OCR)" class="img-wrap" target="_blank"> <img alt="初探利用Python进行图文识别(OCR)" src="//img.jbzj.com/images/xgimg/bcimg2.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/156991.htm" title="初探利用Python进行图文识别(OCR)">初探利用Python进行图文识别(OCR)</a></p><div class="item-info"><div class="js">这篇文章主要介绍了初探利用Python进行图文识别(OCR),小编觉得挺不错的，现在分享给大家，也给大家做个参考。一起跟随小编过来看看吧</div><span class="lbtn" style="float:right"> 2019-02-02 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/163267.htm" title="PyQt4编程之让状态栏显示信息的方法" class="img-wrap" target="_blank"> <img alt="PyQt4编程之让状态栏显示信息的方法" src="//img.jbzj.com/images/xgimg/bcimg3.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/163267.htm" title="PyQt4编程之让状态栏显示信息的方法">PyQt4编程之让状态栏显示信息的方法</a></p><div class="item-info"><div class="js">今天小编就为大家分享一篇PyQt4编程之让状态栏显示信息的方法，具有很好的参考价值，希望对大家有所帮助。一起跟随小编过来看看吧</div><span class="lbtn" style="float:right"> 2019-06-06 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/162486.htm" title="Python3.6+Django2.0以上 xadmin站点的配置和使用教程图解" class="img-wrap" target="_blank"> <img alt="Python3.6+Django2.0以上 xadmin站点的配置和使用教程图解" src="//img.jbzj.com/images/xgimg/bcimg4.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/162486.htm" title="Python3.6+Django2.0以上 xadmin站点的配置和使用教程图解">Python3.6+Django2.0以上 xadmin站点的配置和使用教程图解</a></p><div class="item-info"><div class="js">django自带的admin站点虽然功能强大，但是界面不是很好看。这篇文章主要介绍了Python3.6+Django2.0以上 xadmin站点的配置和使用 ，本文图文并茂给大家介绍的非常详细，具有一定的参考借鉴价值,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2019-06-06 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/96912.htm" title="python通过cookie模拟已登录状态的初步研究" class="img-wrap" target="_blank"> <img alt="python通过cookie模拟已登录状态的初步研究" src="//img.jbzj.com/images/xgimg/bcimg5.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/96912.htm" title="python通过cookie模拟已登录状态的初步研究">python通过cookie模拟已登录状态的初步研究</a></p><div class="item-info"><div class="js">对于那些需要在登录环境下进行的爬虫操作，模拟登陆或伪装已登录状态是一个刚性需求。这篇文章主要介绍了python通过cookie模拟已登录状态的相关资料,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2016-11-11 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/151130.htm" title="pygame游戏之旅 添加游戏介绍" class="img-wrap" target="_blank"> <img alt="pygame游戏之旅 添加游戏介绍" src="//img.jbzj.com/images/xgimg/bcimg6.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/151130.htm" title="pygame游戏之旅 添加游戏介绍">pygame游戏之旅 添加游戏介绍</a></p><div class="item-info"><div class="js">这篇文章主要为大家详细介绍了pygame游戏之旅，教大家如何添加游戏介绍，具有一定的参考价值，感兴趣的小伙伴们可以参考一下</div><span class="lbtn" style="float:right"> 2018-11-11 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/78837.htm" title="详解Python网络爬虫功能的基本写法" class="img-wrap" target="_blank"> <img alt="详解Python网络爬虫功能的基本写法" src="//img.jbzj.com/images/xgimg/bcimg7.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/78837.htm" title="详解Python网络爬虫功能的基本写法">详解Python网络爬虫功能的基本写法</a></p><div class="item-info"><div class="js">这篇文章主要介绍了Python网络爬虫功能的基本写法，网络爬虫，即Web Spider，是一个很形象的名字。把互联网比喻成一个蜘蛛网，那么Spider就是在网上爬来爬去的蜘蛛，对网络爬虫感兴趣的朋友可以参考本文</div><span class="lbtn" style="float:right"> 2016-01-01 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/157030.htm" title="python使用PyQt5的简单方法" class="img-wrap" target="_blank"> <img alt="python使用PyQt5的简单方法" src="//img.jbzj.com/images/xgimg/bcimg8.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/157030.htm" title="python使用PyQt5的简单方法">python使用PyQt5的简单方法</a></p><div class="item-info"><div class="js">这篇文章主要介绍了python使用PyQt5的简单方法，文中通过示例代码介绍的非常详细，对大家的学习或者工作具有一定的参考学习价值，需要的朋友们下面随着小编来一起学习学习吧</div><span class="lbtn" style="float:right"> 2019-02-02 </span></div></div></div></div></li>
+<li><div class="item-inner"><a href="/article/121500.htm" title="Python3.5编程实现修改IIS WEB.CONFIG的方法示例" class="img-wrap" target="_blank"> <img alt="Python3.5编程实现修改IIS WEB.CONFIG的方法示例" src="//img.jbzj.com/images/xgimg/bcimg9.png"> </a><div class="rbox"><div class="rbox-inner"><p><a class="link title" target="_blank" href="/article/121500.htm" title="Python3.5编程实现修改IIS WEB.CONFIG的方法示例">Python3.5编程实现修改IIS WEB.CONFIG的方法示例</a></p><div class="item-info"><div class="js">这篇文章主要介绍了Python3.5编程实现修改IIS WEB.CONFIG的方法,涉及Python针对xml格式文件的读写以及节点操作相关技巧,需要的朋友可以参考下</div><span class="lbtn" style="float:right"> 2017-08-08 </span></div></div></div></div></li>
+</ul>
+					</div>
+					<div class="lbd clearfix mt5">
+						<span id="art_down2" class="jbTestPos"></span>
+					</div>
+					<a href="#comments"></a>
+					<div id="comments">
+						<h2>最新评论</h2>
+						<div class="pd5"><div id="SOHUCS" sid="art_132691"></div></div>
+					</div>
+				  </div><!--endborder-->
+			  </div><!--end fl-->
+		  
+			<div class="main-right">
+				<div id="sidebar-right">
+					<div class="r300 clearfix"><span id="side_up" class="jbTestPos"></span></div>
+                    <div class="sidebox-recomm">
+						<a class="style02" href="https://www.jb51.net/os/win10/698746.html" target="_blank">
+							<div class="title"><strong>站长推荐</strong></div>
+							<div class="tj_ico2"></div>
+							<h2>正版 Windows 10</h2>
+							<p>正版Windows 10 家庭/专业版，操作系统限时抢购[￥<span>1088</span>&rarr;<i>￥248</i>]</p>
+						</a>
+						<a class="style01" href="https://www.jb51.net/news/699009.html" target="_blank">
+							<div class="title"><strong>站长推荐</strong></div>
+							<div class="tj_ico"></div>
+							<h2>正版 Office 软件</h2>
+							<p>Microsoft Office 2016/2019/365 正版最低价仅需[<i> ￥148元</i>]</p>
+						</a>
+</div>
+					<div class="sidebox bor-blue">
+						<div class="bor-default pb10">
+							<h4 class="blue">大家感兴趣的内容</h4>
+                            <ul class="newsList newList-in">
+							<li><EM class="no1">1</EM><a href="/article/926.htm" title="Python入门教程 超详细1小时学会Python" target="_blank">Python入门教程 超详细1小时学会</a></li><li><EM class="no2">2</EM><a href="/article/47978.htm" title="Python 列表(List)操作方法详解" target="_blank">Python 列表(List)操作方法详解</a></li><li><EM class="no3">3</EM><a href="/article/47986.htm" title="Python 元组(Tuple)操作详解" target="_blank">Python 元组(Tuple)操作详解</a></li><li><EM class="no4">4</EM><a href="/article/47990.htm" title="Python 字典(Dictionary)操作详解" target="_blank">Python 字典(Dictionary)操作详解</a></li><li><EM class="no5">5</EM><a href="/article/50689.htm" title="pycharm 使用心得（一）安装和首次使用" target="_blank">pycharm 使用心得（一）安装和首</a></li><li><EM class="no6">6</EM><a href="/article/37287.htm" title="python strip()函数 介绍" target="_blank">python strip()函数 介绍</a></li><li><EM class="no7">7</EM><a href="/article/26543.htm" title="python 中文乱码问题深入分析" target="_blank">python 中文乱码问题深入分析</a></li><li><EM class="no8">8</EM><a href="/article/60510.htm" title="python中使用xlrd、xlwt操作excel表格详解" target="_blank">python中使用xlrd、xlwt操作exce</a></li><li><EM class="no9">9</EM><a href="/article/51651.htm" title="Python科学计算环境推荐——Anaconda" target="_blank">Python科学计算环境推荐——Anac</a></li><li><EM class="no10">10</EM><a href="/article/45956.htm" title="python逐行读取文件内容的三种方法" target="_blank">python逐行读取文件内容的三种方</a></li>
+                            </ul>
+						</div>
+					</div>
+					<div class="r300 clearfix mt10"><span id="idctu" class="jbTestPos"></span></div>
+					<div class="sidebox bor-blue">
+						<div class="bor-default pb10">
+							<h4 class="blue">最近更新的内容</h4>
+                            <ul class="newsListA">
+							<li><a href="/article/100532.htm" title="python查看微信好友是否删除自己" target="_blank">python查看微信好友是否删除自己</a></li><li><a href="/article/170749.htm" title="Laravel框架表单验证格式化输出的方法" target="_blank">Laravel框架表单验证格式化输出的方法</a></li><li><a href="/article/128150.htm" title="人机交互程序 python实现人机对话" target="_blank">人机交互程序 python实现人机对话</a></li><li><a href="/article/152779.htm" title="Python机器学习之scikit-learn库中KNN算法的封装与使用方法" target="_blank">Python机器学习之scikit-learn库中KNN算法</a></li><li><a href="/article/160532.htm" title="python实现定时压缩指定文件夹发送邮件" target="_blank">python实现定时压缩指定文件夹发送邮件</a></li><li><a href="/article/175298.htm" title="python 变量初始化空列表的例子" target="_blank">python 变量初始化空列表的例子</a></li><li><a href="/article/84075.htm" title="Python中遍历字典过程中更改元素导致异常的解决方法" target="_blank">Python中遍历字典过程中更改元素导致异常</a></li><li><a href="/article/137365.htm" title="教你使用python画一朵花送女朋友" target="_blank">教你使用python画一朵花送女朋友</a></li><li><a href="/article/66227.htm" title="Python中的hypot()方法使用简介" target="_blank">Python中的hypot()方法使用简介</a></li><li><a href="/article/161410.htm" title="六行python代码的爱心曲线详解" target="_blank">六行python代码的爱心曲线详解</a></li>
+                            </ul>
+						</div>
+					</div>
+					<div class="r300 clearfix mt10">
+						<span id="idctu1" class="jbTestPos"></span>
+					</div>
+                    <div class="sidebox bor-blue">
+						<div class="bor-default pb10">
+							<h4 class="blue">常用在线小工具</h4>
+							<ul class="newsListA"><span id="bctools" class="jbTestPos"></span></ul>
+						</div>
+					</div>
+					<div class="r300 clearfix mt10"><span id="idctu2" class="jbTestPos"></span></div>
+					<div class="mt10 rFixedBox">
+						<div class="r300 clearfix"><span id="r2gg" class="jbTestPos"></span></div>
+						<div class="r300 clearfix mt10">
+							<span id="rbbd" class="jbTestPos"></span>
+						</div>
+					</div>
+				  </div>
+			  </div><!--end fr-->
+		  </div>
+	  </div>
+	  <!--share start-->
+	 <div id="right-share">
+		<div class="right-share jb-share" id="jb-share">
+			<a class="rshare-weixin" title="">微信</a>
+			<a rel="nofollow" class="rshare-qzone" target="_blank" href="http://tougao.jb51.net/" title="投稿">投稿</a>
+			<a rel="nofollow" class="rshare-tsina2" target="_blank" href="http://tools.jb51.net/" title="在线工具">在线工具</a>
+		</div>
+		<a class="rshare-top2" onClick="javascript:;"></a>
+		<div id="weixin-code" class="hide">
+		<div class="popup_weixin_head"><p>关注微信公众号</p> 
+		<div id="code"><img src="//img.jbzj.com/skin/2018/images/erwm.jpg" alt="扫一扫" width="100" hight="100"></div>
+		</div>
+		</div>	
+	 </div>
+	<!--share end-->
+
+</div><!--end content-->
+<div id="footer">
+	<div class="footer-bottom">
+		<p>
+			<a rel="nofollow" href="/about.htm" target="_blank">关于我们</a> - 
+			<a rel="nofollow" href="/support.htm" target="_blank">广告合作</a> - 
+			<a rel="nofollow" href="/linkus.htm" target="_blank">联系我们</a> -  
+			<a rel="nofollow" href="/sm.htm" target="_blank">免责声明</a> -  
+			<a rel="nofollow" href="/sitemap.htm" target="_blank">网站地图</a> - 
+			<a rel="nofollow" href="tencent://message/?uin=461478385&Site=https://www.jb51.net" target="_blank">投诉建议</a> - 
+			<a rel="nofollow" href="/up.htm" target="_blank">在线投稿</a>
+		</p>
+		<p>&copy;CopyRight 2006-2020 JB51.Net Inc All Rights Reserved. 脚本之家 版权所有</p>
+	</div>
+</div><!--end footer-->
+<link type="text/css" rel="stylesheet" href="/jslib/syntaxhighlighter/styles/shCore.css" />
+<link type="text/css" rel="Stylesheet" href="/jslib/syntaxhighlighter/styles/shThemeDefault.css" />
+<script type="text/javascript" src="/jslib/syntaxhighlighter/scripts/shHighlighter.js"></script>
+<script type="text/javascript"> 
+/*更多导航*/
+$("#nav p").hover(function(){$(this).addClass("hover")},function(){$(this).removeClass("hover")});
+if (top.location != self.location)top.location=self.location;
+var varwindow=$(window);
+$('#content').find('img').each(function(){
+        var img = this;
+        if (img.width >= 800 && !$(this).hasClass("nohref")){
+            img.style.width = "800px";
+            img.style.height = "auto";
+          }
+    });
+ $(window).scroll(function()
+    {	
+    	//rFixedBox跟随滚动
+    	var h = varwindow.height();
+        var top = varwindow.scrollTop();
+    	var rFixedBox = $('.rFixedBox').prev().offset();
+        var fixedTop = rFixedBox.top;
+		
+        if(top>=fixedTop+330)
+        {
+			var h1 = parseInt($('#content').children('.main').height());
+			$('.rFixedBox').css({'position':'fixed','top': 0});
+        }
+        else
+        {
+            $('.rFixedBox').css({'position':'static', 'top':0});   
+        }	
+       /* return true;*/
+	   
+	   /*右侧快捷菜单*/
+	   sideFixed();
+    });
+	
+	var ww = varwindow.width();
+	function sideFixed(){
+	var scrolltop = document.body.scrollTop || document.documentElement.scrollTop;
+	var a1 = 550;
+	if(ww>440){
+		if(a1<=scrolltop){
+			$('#right-share').slideDown();
+			}
+		else{
+			$('#right-share').slideUp();
+			}
+		}
+	}
+	$('.rshare-weixin').hover(function(){
+			$('#weixin-code').removeClass('hide');
+		},function(){
+			$('#weixin-code').addClass('hide');
+		});
+	/*二维码*/
+	$('#right-share .rshare-top2').on('click',function(){
+        $('html,body').animate({'scrollTop':0},500);
+    });
+if(suoyin=="ok"){
+	GenerateContentList();
+}
+
+SyntaxHighlighter.autoloader(
+	'applescript			/jslib/syntaxhighlighter/scripts/shBrushAppleScript.js',
+	'actionscript3 as3		/jslib/syntaxhighlighter/scripts/shBrushAS3.js',
+	'bash shell				/jslib/syntaxhighlighter/scripts/shBrushBash.js',
+	'coldfusion cf			/jslib/syntaxhighlighter/scripts/shBrushColdFusion.js',
+	'cpp c					/jslib/syntaxhighlighter/scripts/shBrushCpp.js',
+	'obj-c objc				/jslib/syntaxhighlighter/scripts/shBrushObjC.js',
+	'c# c-sharp csharp		/jslib/syntaxhighlighter/scripts/shBrushCSharp.js',
+	'css					/jslib/syntaxhighlighter/scripts/shBrushCss.js',
+	'delphi pascal			/jslib/syntaxhighlighter/scripts/shBrushDelphi.js',
+	'diff patch pas			/jslib/syntaxhighlighter/scripts/shBrushDiff.js',
+	'erl erlang				/jslib/syntaxhighlighter/scripts/shBrushErlang.js',
+	'groovy					/jslib/syntaxhighlighter/scripts/shBrushGroovy.js',
+	'haxe hx				/jslib/syntaxhighlighter/scripts/shBrushHaxe.js',
+	'java					/jslib/syntaxhighlighter/scripts/shBrushJava.js',
+	'jfx javafx				/jslib/syntaxhighlighter/scripts/shBrushJavaFX.js',
+	'js jscript javascript	/jslib/syntaxhighlighter/scripts/shBrushJScript.js',
+	'perl pl				/jslib/syntaxhighlighter/scripts/shBrushPerl.js',
+	'php					/jslib/syntaxhighlighter/scripts/shBrushPhp.js',
+	'text plain				/jslib/syntaxhighlighter/scripts/shBrushPlain.js',
+	'py python				/jslib/syntaxhighlighter/scripts/shBrushPython.js',
+	'ruby rails ror rb		/jslib/syntaxhighlighter/scripts/shBrushRuby.js',
+	'scala					/jslib/syntaxhighlighter/scripts/shBrushScala.js',
+	'sql					/jslib/syntaxhighlighter/scripts/shBrushSql.js',
+	'vb vbnet				/jslib/syntaxhighlighter/scripts/shBrushVb.js',
+	'ps powershell			/jslib/syntaxhighlighter/scripts/shBrushPowerShell.js',
+	'xml xhtml xslt html	/jslib/syntaxhighlighter/scripts/shBrushXml.js'
+);
+SyntaxHighlighter.all();
+
+var ourl="http://blog.csdn.net/LS7011846/article/details/52626626";
+
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script type="text/javascript" src='//cdn.staticfile.org/viewerjs/1.5.0/viewer.min.js'></script>
+<script type="text/javascript" src='//icws.jb51.net/good/arc2019.js'></script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<!--右侧浮动临时增加-->
+<script>jbLoader();</script><script class="closetag">jbLoader(true);</script>
+<div id="tongji">
+<script type="text/javascript" src="//icws.jb51.net/tongji/tongji.js"></script>
+</div>
+<script type="text/javascript">
+if ('undefined' == typeof(window.Viewer)) {
+        document.write(unescape("%3Cscript src='/skin/js/viewer.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+var viewer = new Viewer(document.getElementById('content'));
+//tu+
+var cpro_id = "u1893014";
+document.write('<scri'+'pt src="//cpro.baidustatic.com/cpro/ui/i.js" type="text/javascript"></s'+'cript>');
+(function(){
+var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?2f793ca9dd6f4c32488903eed5c7fbcb":"https://jspassport.ssl.qhimg.com/11.0.1.js?2f793ca9dd6f4c32488903eed5c7fbcb";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script> 
+<script type="text/javascript" src="//www.jb51.net/pl.asp?id=132691"></script>
+<script type="application/ld+json">
+        {
+            "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+            "@id": "https://www.jb51.net/article/132691.htm",
+            "appid": "1549322409310619",
+            "title": "Python中实现switch功能实例解析",
+            "description": "这篇文章主要介绍了Python中实现switch功能实例解析，具有一定借鉴价值,需要的朋友可以参考下",
+            "pubDate": "2018-01-11T14:45:01",
+			"upDate": "2018-01-11T14:45:01"
+        }
+</script>
+</body>
+</html>
+<!-- published at 2020/5/21 10:55:27By dxycms qq:461478385  -->
