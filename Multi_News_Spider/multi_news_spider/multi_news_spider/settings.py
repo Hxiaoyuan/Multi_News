@@ -90,6 +90,6 @@ ROBOTSTXT_OBEY = False
 
 
 INPUTS_TXT = './data_url/inputs.txt'
-SUMMARIES_TXT = '../data_url/inputs.txt'
+SUMMARIES_TXT = '../data_url/summaries.txt'
 INPUT_RECORD_TXT = './data_url/inputs_record.txt'
 SUMMARIES_RECORD_TXT = './data_url/summaries_record.txt'
