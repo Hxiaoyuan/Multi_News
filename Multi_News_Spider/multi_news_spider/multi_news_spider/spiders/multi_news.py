@@ -15,6 +15,22 @@ curSpiderType = "INPUTS_TXT"
 curSpiderRecordType = "INPUT_RECORD_TXT"
 writeList = []
 
+proxy_host = '127.0.0.1'
+proxy_port = '10809'  # 查看自己的端口  控制面板->Internet选项->internet属性里面的连接选项->局域网设置
+
+proxy_user = ''
+proxy_pass = ''
+
+proxy_meta = 'http://%(user)s:%(pass)s@%(host)s:%(port)s' % {
+    'host': proxy_host,
+    'port': proxy_port,
+    'user': proxy_user,
+    'pass': proxy_pass,
+}
+
+proxy = proxy_host + ':' + proxy_port
+proxies = 'http://' + proxy
+
 
 class MultiNewsSpider(scrapy.Spider):
     name = 'multi_news'
@@ -28,7 +44,7 @@ class MultiNewsSpider(scrapy.Spider):
             for line in _input:
                 line = line.split('\t')
                 if line[1].strip() not in writeList:
-                    req = scrapy.Request(url=line[0].strip(), callback=self.parse)
+                    req = scrapy.Request(url=line[0].strip(), callback=self.parse, meta={'proxy': proxies})
                     req.meta['filename'] = line[1].strip()
                     yield req
 
@@ -42,7 +58,7 @@ class MultiNewsSpider(scrapy.Spider):
                     writeList.append(filename)
 
                     with open(settings[curSpiderRecordType], 'a+') as f1:
-                        f1.write(filename+"\n")
+                        f1.write(filename + "\n")
             except FileNotFoundError:
                 _dir = filename.split('/')
                 os.makedirs(_dir[0].strip())
