@@ -3,7 +3,7 @@ import scrapy
 from scrapy.utils.project import get_project_settings
 import os
 
-'''
+''' 
 INPUTS_TXT:1
 SUMMARIES_TXT:1
 AVAILABILITY_TXT:1
